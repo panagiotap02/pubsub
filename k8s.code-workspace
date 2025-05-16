@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "k8s"
+		},
+		{
+			"path": "publisher"
+		},
+		{
+			"path": "subscriber"
+		},
+		{
+			"path": "test_connection"
+		}
+	]
+}
