@@ -12,20 +12,20 @@ async def run():
             max_reconnect_attempts=5,
             reconnect_time_wait=2
         )
-        print("✅ Connected to NATS")
+        print("Succesfully connected to NATS")
 
         # Publish a single message
         message = b"Hello from publisher!"
-        print(f"📤 Publishing message: {message.decode()}")
+        print(f"Publishing message: {message.decode()}")
         await nc.publish("updates", message)
 
     except Exception as e:
-        print(f"❌ Failed to publish message: {e}")
+        print(f"Failed to publish message: {e}")
 
     finally:
-        print("🔌 Closing connection...")
+        print("Closing connection...")
         await nc.close()
-        print("✅ Connection closed.")
+        print("Connection closed.")
 
 if __name__ == "__main__":
     asyncio.run(run())
