@@ -31,7 +31,7 @@ sequenceDiagram
     deactivate Sub
  ```
 
-# Messagequeue with NATS and Kubernetes
+
 ## Structure
 
 publisher/ — Contains the Python publisher script and its Dockerfile. Responsible for pushing messages to NATS.
