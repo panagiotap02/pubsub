@@ -1,4 +1,4 @@
-# Messagequeue with NATS and Kubernetes
+# Message queue with NATS and Kubernetes
 
 A cloud-native, event-driven architecture implementing the **Publisher-Subscriber (Pub/Sub)** pattern. This project features containerized Python applications coordinated via **Kubernetes** using **NATS Server** as the high-performance message broker.
 * **Description:** *A cloud-native Pub/Sub architecture built with Python, NATS, Docker, and Kubernetes.*
