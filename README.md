@@ -34,37 +34,38 @@ sequenceDiagram
 
 ## Structure
 
-publisher/ — Contains the Python publisher script and its Dockerfile. Responsible for pushing messages to NATS.
-subscriber/ — Contains the Python subscriber script and its Dockerfile. Listens to NATS channels and processes payloads.
-k8s/ — Kubernetes manifests holding the deployment and service configurations for NATS, the publisher, and the subscriber.
-test_connection/ — A standalone script environment (test.py) to easily verify broker connectivity.
+* `publisher/` — Publishes messages to NATS
+               — Contains the Python publisher script and its Dockerfile. Responsible for pushing messages to NATS.
+  
+* `subscriber/` — Subscribes and listens to NATS messages
+                — Contains the Python subscriber script and its Dockerfile. Listens to NATS channels and processes payloads.
+  
+* `k8s/` — Kubernetes deployment and service configs
+         — Kubernetes manifests holding the deployment and service configurations for NATS, the publisher, and the subscriber.
 
-## Structure
+*test_connection/ — A standalone script environment (test.py) to easily verify broker connectivity.
 
-- `publisher/` — Publishes messages to NATS
-- `subscriber/` — Subscribes and listens to NATS messages
-- `k8s/` — Kubernetes deployment and service configs
 
 ## Usage
 
-1. Build Docker images (inside Minikube):
+### 1. Build Docker images (inside Minikube):
    ```bash
    eval $(minikube docker-env)
    docker build -t publisher-app:latest ./publisher
    docker build -t subscriber-app:latest ./subscriber
    ```
 
-2. Deploy to Kubernetes:
+### 2. Deploy to Kubernetes:
    ```bash
    kubectl apply -f k8s/
    ```
 
-3. Port-forward NATS (optional):
+### 3. Port-forward NATS (optional):
    ```bash
    kubectl port-forward service/my-nats 4222:4222
    ```
 
-4. Check logs:
+### 4. Check logs:
    ```bash
    kubectl logs -l app=subscriber
    kubectl logs -l app=publisher
